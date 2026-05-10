@@ -3,11 +3,11 @@
 -- Results must be sorted in descending order by rating
 SELECT 
     tg.name AS name, 
-    SUM(tsr.rate) AS rating
+    COALESCE(SUM(tsr.rate), 0) AS rating
 FROM tv_genres tg
-INNER JOIN tv_show_genres tsg 
+OUTER JOIN tv_show_genres tsg 
     ON tg.id = tsg.genre_id
-INNER JOIN tv_show_ratings tsr
+OUTER JOIN tv_show_ratings tsr
 	ON tsg.show_id = tsr.show_id
 GROUP BY name
 ORDER BY rating DESC;
