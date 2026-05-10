@@ -1,3 +1,6 @@
+-- lists all shows from hbtn_0d_tvshows_rate by their rating
+-- Results must be displayed as title, rating
+-- Results must be sorted in descending order by the rating
 SELECT 
     ts.title AS title, 
     SUM(tsr.rate) AS rating
