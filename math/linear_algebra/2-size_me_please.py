@@ -3,13 +3,7 @@
 
 
 def matrix_shape(matrix):
-    """Calculates the shape of a matrix"""
-    try:
-        shape = [len(matrix), len(matrix[0]), len(matrix[0][0])]
-    except Exception:
-        try:
-            shape = [len(matrix), len(matrix[0])]
-        except Exception:
-            raise
-    finally:
-        return shape
+    """Calculates the shape of a matrix recursively"""
+    if not isinstance(matrix, list):
+        return []
+    return [len(matrix)] + matrix_shape(matrix[0])
