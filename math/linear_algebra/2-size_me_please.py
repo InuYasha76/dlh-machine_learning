@@ -12,4 +12,4 @@ def matrix_shape(matrix):
         except Exception:
             raise
     finally:
-        return shape:
+        return shape
