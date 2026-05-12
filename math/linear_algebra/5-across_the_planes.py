@@ -11,7 +11,8 @@ def matrix_shape(matrix):
 
 def add_matrices2D(mat1, mat2):
     """Adds two matrices element-wise."""
-    if not mat1 or not mat2 or matrix_shape(mat1) != matrix_shape(mat2):
+    if not (mat1 and mat1[0] and mat2 and mat1[0]
+            and matrix_shape(mat1) == matrix_shape(mat2)):
         return None
     result = []
     for row_m1, row_m2 in zip(mat1, mat2):
@@ -22,6 +23,7 @@ def add_matrices2D(mat1, mat2):
 if __name__ == "__main__":
     mat1 = [[1, 2], [3, 4]]
     mat2 = [[5, 6], [7, 8]]
+    print(add_matrices2D([], []))
     print(add_matrices2D(mat1, mat2))
     print(mat1)
     print(mat2)
