@@ -2,15 +2,13 @@
 """This module is about Numpy Arrays."""
 
 
-import numpy as np
-
-
 def np_shape(matrix):
     """Calculates the shape of a numpy.ndarray."""
     return matrix.shape
 
 
 if __name__ == "__main__":
+    import numpy as np
     mat1 = np.array([1, 2, 3, 4, 5, 6])
     mat2 = np.array([])
     mat3 = np.array([[[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]],
