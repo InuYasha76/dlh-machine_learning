@@ -4,7 +4,11 @@
 
 def matrix_transpose(matrix):
     """Returns a transposed matrix"""
-    return list(zip(*matrix))
+    if not matrix:
+        return []
+    if not matrix[0]:
+        matrix = [matrix]
+    return [list(column) for column in zip(*matrix)]
 
 
 if __name__ == "__main__":
