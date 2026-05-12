@@ -3,6 +3,7 @@
 
 
 def cat_arrays(arr1, arr2):
+    """Concatenates two arrays."""
     if not isinstance(arr1, list):
         arr1 = []
     if not isinstance(arr2, list):
