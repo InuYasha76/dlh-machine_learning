@@ -4,7 +4,7 @@
 
 def matrix_shape(matrix):
     """Calculates the shape of a matrix recursively"""
-    if not isinstance(matrix, list):
+    if not (matrix and isinstance(matrix, list)):
         return []
     return [len(matrix)] + matrix_shape(matrix[0])
 
