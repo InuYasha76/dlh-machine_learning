@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 """This module is about ndarrays slicing."""
 
-import numpy as np
-
 
 def np_slice(matrix, axes={}):
     """
