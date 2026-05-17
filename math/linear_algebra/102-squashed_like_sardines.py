@@ -21,10 +21,13 @@ def cat_matrices(mat1, mat2, axis=0):
     """
     shape1 = get_shape(mat1)
     shape2 = get_shape(mat2)
-
+    # Concat Rule 1: ranks of mat1 and mat2 must be identical
     if len(shape1) != len(shape2):
         return None
-
+    # Concat Rule 2: all dimensions except on the axis must be identical
+    for i in range(len(shape1)):
+        if i != axis and shape1[i] != shape2[i]:
+            return None
     if axis == 0:
         return mat1 + mat2
     return [cat_matrices(sub1, sub2, axis - 1)
