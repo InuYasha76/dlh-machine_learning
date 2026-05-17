@@ -2,6 +2,13 @@
 """This module is about matrices concatenation."""
 
 
+def get_shape(matrix):
+    """Recursive matrix shape finder."""
+    if not isinstance(matrix, list):
+        return []
+    return [len(matrix)] + get_shape(matrix[0])
+
+
 def cat_matrices(mat1, mat2, axis=0):
     """
     Concatenates two matrices along a specific axis.
@@ -12,6 +19,12 @@ def cat_matrices(mat1, mat2, axis=0):
     Returns:
         A new matrix.
     """
+    shape1 = get_shape(mat1)
+    shape2 = get_shape(mat2)
+
+    if len(shape1) != len(shape2):
+        return None
+
     if axis == 0:
         return mat1 + mat2
     return [cat_matrices(sub1, sub2, axis - 1)
