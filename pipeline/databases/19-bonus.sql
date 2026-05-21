@@ -1,4 +1,6 @@
 -- Creates stored procedure AddBonus that adds a new correction for a student.
+-- If the project doesn't exist, inserts it into the projects table.
+
 
 DELIMITER //
 
@@ -10,14 +12,21 @@ CREATE PROCEDURE AddBonus(
 BEGIN
 	DECLARE project_id INT;
 
-	-- Insert if not exists, else execute ON DUPLICATE KEY
-	INSERT INTO projects (name)
-	VALUES (project_name)
-	ON DUPLICATE KEY UPDATE id = LAST_INSERT_ID(id);
-	
-	-- Retrieve id of existing or inserted row that's stored in the session
-	SET project_id = LAST_INSERT_ID();
+	-- Retrieve the id of the project by name, NULL if not found
+	SELECT id INTO project_id
+	FROM projects
+	WHERE name = project_name;
 
+	-- Insert project if not exists
+	IF project_id IS NULL THEN
+		INSERT INTO projects (name)
+		VALUES (project_name);
+
+		-- Retrieves the last inserted project id
+		SET project_id = LAST_INSERT_ID();
+	END IF;
+
+	-- Inserts a correction 
 	INSERT INTO corrections (user_id, project_id, score)
 	VALUES (user_id, project_id, score);
 END //
