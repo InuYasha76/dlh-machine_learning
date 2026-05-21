@@ -10,9 +10,13 @@ CREATE PROCEDURE AddBonus(
 BEGIN
 	DECLARE project_id INT;
 
-	SELECT projects.id INTO project_id
-	FROM projects
-	WHERE projects.name = project_name;
+	-- Insert if not exists, else execute ON DUPLICATE KEY
+	INSERT INTO projects (name)
+	VALUES (project_name)
+	ON DUPLICATE KEY UPDATE id = LAST_INSERT_ID(id);
+	
+	-- Retrieve id of existing or inserted row that's stored in the session
+	SET project_id = LAST_INSERT_ID();
 
 	INSERT INTO corrections (user_id, project_id, score)
 	VALUES (user_id, project_id, score);
