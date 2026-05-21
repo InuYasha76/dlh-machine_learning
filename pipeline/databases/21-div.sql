@@ -9,7 +9,7 @@ BEGIN
 	IF arg2 = 0 OR arg1 IS NULL OR arg2 IS NULL THEN
 		RETURN 0;
 	END IF;
-	RETURN arg1 / arg2;
+	RETURN ROUND(arg1 / arg2, 6);
 END //
 
 DELIMITER ;
