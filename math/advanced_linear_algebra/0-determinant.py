@@ -18,13 +18,17 @@ def determinant(matrix):
     """
     n = len(matrix)
     det = 0
-    sign = 1
+    i = 0
+    sign = 1 if i % 2 == 0 else -1
 
     if not (matrix and
             isinstance(matrix, list) and
             isinstance(matrix[0], list)):
         raise TypeError("matrix must be a list of lists")
 
+    if n == 0 or len(matrix[0]) == 0:
+        return 1
+    
     if n != len(matrix[0]):
         raise ValueError("matrix must be a square matrix")
 
@@ -34,9 +38,9 @@ def determinant(matrix):
     if n == 1:
         return matrix[0][0]
 
-    for i in range(n):
-        sub_matrix = get_minor(matrix, i)
-        det += sign * matrix[0][i] * determinant(sub_matrix)
+    for j in range(n):
+        sub_matrix = get_minor(matrix, i, j)
+        det += sign * matrix[i][j] * determinant(sub_matrix)
         sign *= -1
 
     return det
