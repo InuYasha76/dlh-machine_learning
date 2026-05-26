@@ -29,9 +29,11 @@ def determinant(matrix):
 
     det = 0
     for j in range(n):
-        sign = 1 if j % 2 == 0 else -1
         sub_matrix = get_minor(matrix, 0, j)
-        det += sign * matrix[0][j] * determinant(sub_matrix)
+        if j % 2 == 0:
+            det += matrix[0][j] * determinant(sub_matrix)
+        else:
+            det -= matrix[0][j] * determinant(sub_matrix)
 
     return det
 
