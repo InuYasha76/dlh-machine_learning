@@ -108,4 +108,4 @@ def inverse(matrix):
     adj = adjugate(matrix)
     n = len(adj)
 
-    return [[adj[i][j] / d  et for j in range(n)] for i in range(n)]
+    return [[adj[i][j] / det for j in range(n)] for i in range(n)]
