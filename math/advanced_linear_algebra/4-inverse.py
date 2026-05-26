@@ -20,8 +20,12 @@ def determinant(matrix):
 
     if n == 0 or len(matrix[0]) == 0:
         return 1
+
     if n == 1:
         return matrix[0][0]
+
+    if n == 2:
+        return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0]
 
     det = 0
     for j in range(n):
@@ -40,6 +44,8 @@ def minor(matrix):
     Returns:
         list of lists: The minor matrix.
     """
+    n = len(matrix)
+
     if n == 1:
         return [[1]]
 
