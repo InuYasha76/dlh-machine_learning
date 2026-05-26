@@ -28,7 +28,7 @@ def determinant(matrix):
 
     if n == 0 or len(matrix[0]) == 0:
         return 1
-    
+
     if n != len(matrix[0]):
         raise ValueError("matrix must be a square matrix")
 
