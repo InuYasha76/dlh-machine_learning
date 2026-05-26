@@ -24,9 +24,6 @@ def determinant(matrix):
     if n == 1:
         return matrix[0][0]
 
-    if n == 2:
-        return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0]
-
     det = 0
     for j in range(n):
         sub_matrix = get_minor(matrix, 0, j)
@@ -111,4 +108,4 @@ def inverse(matrix):
     adj = adjugate(matrix)
     n = len(adj)
 
-    return [[(1 / det) * adj[i][j] for j in range(n)] for i in range(n)]
+    return [[adj[i][j] / d  et for j in range(n)] for i in range(n)]
