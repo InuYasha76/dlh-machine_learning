@@ -37,22 +37,9 @@ def minor(matrix):
     Calculates the minor matrix of a matrix.
     Args:
         matrix (list of lists).
-    Raises:
-        TypeError: If matrix is not a list of lists.
-        ValueError: If matrix is empty or not square.
     Returns:
         list of lists: The minor matrix.
     """
-    if not isinstance(matrix, list) or len(matrix) == 0:
-        raise TypeError("matrix must be a list of lists")
-
-    if not all(isinstance(row, list) for row in matrix):
-        raise TypeError("matrix must be a list of lists")
-
-    n = len(matrix)
-    if not all(len(row) == n for row in matrix):
-        raise ValueError("matrix must be a non-empty square matrix")
-
     if n == 1:
         return [[1]]
 
@@ -91,10 +78,23 @@ def inverse(matrix):
     Calculates the inverse of a matrix using the adjugate method.
     Args:
         matrix (list of lists).
+    Raises:
+        TypeError: If matrix is not a list of lists.
+        ValueError: If matrix is empty or not square.
     Returns:
         List of lists: the inverted matrix, same shape as the initial one.
         None if determinant is equal to 0.
     """
+    if not isinstance(matrix, list) or len(matrix) == 0:
+        raise TypeError("matrix must be a list of lists")
+
+    if not all(isinstance(row, list) for row in matrix):
+        raise TypeError("matrix must be a list of lists")
+
+    n = len(matrix)
+    if not all(len(row) == n for row in matrix):
+        raise ValueError("matrix must be a non-empty square matrix")
+
     det = determinant(matrix)
 
     if det == 0:
