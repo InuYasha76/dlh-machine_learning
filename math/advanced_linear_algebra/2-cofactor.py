@@ -59,6 +59,7 @@ def minor(matrix):
     return [[determinant(get_minor(matrix, i, j)) for j in range(n)]
             for i in range(n)]
 
+
 def cofactor(matrix):
     """
     Calculates the cofactor matrix of a matrix.
