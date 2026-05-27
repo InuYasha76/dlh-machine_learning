@@ -5,7 +5,7 @@ DELIMITER //
 CREATE PROCEDURE ComputeAverageScoreForUser(IN user_id INT)
 BEGIN
     UPDATE users u
-    JOIN (
+    LEFT JOIN (
         SELECT
 			cor.user_id,
 			SUM(cor.score * p.weight) / SUM(p.weight) AS weighted_avg_score
