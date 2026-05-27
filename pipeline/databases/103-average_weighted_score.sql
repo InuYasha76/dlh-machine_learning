@@ -14,7 +14,8 @@ BEGIN
         WHERE cor.user_id = ComputeAverageScoreForUser.user_id
         GROUP BY cor.user_id
     ) c ON c.user_id = u.id
-    SET u.average_score = c.weighted_avg_score;
+    SET u.average_score = COALESCE(c.weighted_avg_score, 0)
+	WHERE u.user_id = ComputeAverageScoreForUser.user_id;
 END //
 
 DELIMITER ;
