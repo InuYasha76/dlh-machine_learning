@@ -1,14 +1,12 @@
 #!/usr/bin/env python3
-"""This module is about Arrays."""
+"""This module is about lists. Assumes type int, float non empty lists.."""
 
 
 def cat_arrays(arr1, arr2):
     """Concatenates two arrays."""
-    if not isinstance(arr1, list):
-        arr1 = []
-    if not isinstance(arr2, list):
-        arr2 = []
-    return arr1 + arr2
+    if isinstance(arr1, list) and isinstance(arr2, list):
+        return arr1 + arr2
+    return None
 
 
 if __name__ == "__main__":
