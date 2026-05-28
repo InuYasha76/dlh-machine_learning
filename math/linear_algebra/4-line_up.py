@@ -4,9 +4,10 @@
 
 def add_arrays(arr1, arr2):
     """Adds two arrays element-wise"""
-    if len(arr1) != len(arr2):
+    try:
+        return [sum(items) for items in zip(arr1, arr2, strict=True)]
+    except ValueError:
         return None
-    return [sum(items) for items in zip(arr1, arr2)]
 
 
 if __name__ == "__main__":
