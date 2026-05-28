@@ -19,9 +19,8 @@ def np_elementwise(mat1, mat2):
     add_res = arr1 + arr2
     sub_res = arr1 - arr2
     mul_res = arr1 * arr2
-    div_res = np.divide(
-        arr1, arr2, out=np.full_like(arr1, np.nan, dtype=float),
-        where=arr2 != 0
-    )
+
+    div_output = np.full_like(arr1, np.nan, dtype=float)
+    div_res = np.divide(arr1, arr2, out=div_output, where=arr2 != 0)
 
     return add_res, sub_res, mul_res, div_res
