@@ -4,10 +4,8 @@
 
 def matrix_transpose(matrix):
     """Returns a transposed matrix"""
-    if not matrix:
+    if not matrix or not matrix[0]:
         return []
-    if not matrix[0]:
-        matrix = [matrix]
     return [list(column) for column in zip(*matrix)]
 
 
