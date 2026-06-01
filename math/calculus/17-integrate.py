@@ -29,11 +29,7 @@ def poly_integral(poly, C=0):
         div = coeff / i
         integral.append(int(div) if div == int(div) else div)
 
-    while len(integral) > 0 and integral[-1] == 0:
+    while len(integral) > 1 and integral[-1] == 0:
         integral.pop()
 
     return integral
-
-
-if __name__ == "__main__":
-    print(poly_integral([5, 3, 0, 1]))
