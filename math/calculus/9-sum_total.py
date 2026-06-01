@@ -3,13 +3,13 @@
 
 
 def summation_i_squared(n):
-    """Sum n squared numbers.
+    """Sums n squared numbers.
     Args:
         n (int): last number in the serie.
     Returns:
         int: sum of the first n squared numbers.
     """
-    if not n or not isinstance(n, int) or n < 0:
+    if not isinstance(n, int) or n < 0:
         return None
 
     if n == 0:
@@ -19,4 +19,7 @@ def summation_i_squared(n):
 
 
 if __name__ == "__main__":
-    print(summation_i_squared(5))
+    print(f"For n = 5 => {summation_i_squared(5)}")
+    print(f"For n = -2 => {summation_i_squared(-2)}")
+    print(f"For n = 0 => {summation_i_squared(0)}")
+    print(f"For n = 1 => {summation_i_squared(1)}")
