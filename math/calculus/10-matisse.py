@@ -11,10 +11,15 @@ def poly_derivative(poly):
         numbers: List of coffs representing polynomials of derivative.
     """
 
-    if not poly or not isinstance(poly, list):
+    if poly is None or type(poly) is not list or not poly:
         return None
 
-    return [i * n for i, n in enumerate(poly)]
+    derivative = [i * n for i, n in enumerate(poly[1:], start=1)]
+
+    if not derivative or all(k == 0 for k in derivative):
+        return [0]
+
+    return derivative
 
 
 if __name__ == "__main__":
