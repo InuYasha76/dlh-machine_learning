@@ -6,9 +6,10 @@ def poly_integral(poly, C=0):
     """
     Calculates the integral of a polynomial.
     Args:
-        poly (number): list of coeffs representing a polynomial.
+        poly (list): list of coeffs representing a polynomial.
+        C (int): the integration constant.
     Returns:
-        numbers: new List of coeffs representing the integral of th polynomial.
+        list: new List of coeffs representing the integral of th polynomial.
     """
 
     if type(C) is float and C.is_integer():
@@ -23,13 +24,14 @@ def poly_integral(poly, C=0):
     if not all(type(p) is int or type(p) is float for p in poly):
         return None
 
-    integral = [
-            int(div) if div.is_integer() else div
-            for i, coeff in enumerate(poly, start=1)
-            if (div := coeff / i) or True
-    ]
+    integral = [C]
+    for i, coeff in enumerate(poly, start=1):
+        div = coeff / i
+        integral.append(int(div) if div == int(div) else div)
 
-    integral.insert(0, C)
+    while len(integral) > 0 and integral[-1] == 0:
+        integral.pop()
+
     return integral
 
 
