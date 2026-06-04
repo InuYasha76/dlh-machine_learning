@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""This modules contains a function to plot a line graph."""
 import numpy as np
 import matplotlib.pyplot as plt
 

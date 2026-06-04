@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+"""This module contains a function using Matplotlib stacked bar graphs."""
 import numpy as np
 import matplotlib.pyplot as plt
 

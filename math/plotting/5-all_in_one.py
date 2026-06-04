@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""This module is about plotting several graphs in the same figure."""
 import numpy as np
 import matplotlib.pyplot as plt
 

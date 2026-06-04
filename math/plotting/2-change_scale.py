@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""This module contains a function using Matplotlib log scaling."""
 import numpy as np
 import matplotlib.pyplot as plt
 

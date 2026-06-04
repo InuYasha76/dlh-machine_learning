@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""This module has a function plotting the decay of 2 radio-active elements"""
 import numpy as np
 import matplotlib.pyplot as plt
 
