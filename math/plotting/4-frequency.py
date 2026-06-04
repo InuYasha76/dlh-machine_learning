@@ -22,7 +22,10 @@ def frequency():
     plt.xlabel("Grades")
     plt.ylabel("Number of Students")
     plt.xlim(0, 100)
-    plt.xticks(bins)
+    plt.xticks(np.arange(0, 101, 10))
 
     plt.title("Project A")
     plt.show()
+
+if __name__ == "__main__":
+    frequency()
