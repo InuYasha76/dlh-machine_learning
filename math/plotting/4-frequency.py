@@ -4,7 +4,14 @@ import matplotlib.pyplot as plt
 
 
 def frequency():
-
+    """
+    plot a histogram of student scores for a project:
+    The x-axis label is Grades
+    The y-axis label is Number of Students
+    The x-axis has bins every 10 units
+    The title is Project A
+    Bars are outlined in black
+    """
     np.random.seed(5)
     student_grades = np.random.normal(68, 15, 50)
     plt.figure(figsize=(6.4, 4.8))

@@ -4,6 +4,14 @@ import matplotlib.pyplot as plt
 
 
 def change_scale():
+    """
+    Plot x ↦ y as a line graph.
+    The x-axis is labeled Time (years).
+    The y-axis is labeled Fraction Remaining.
+    The title is Exponential Decay of C-14.
+    The y-axis is log scaled.
+    The x-axis ranges 0 to 28650.
+    """
     x = np.arange(0, 28651, 5730)
     r = np.log(0.5)
     t = 5730

@@ -3,6 +3,16 @@ import matplotlib.pyplot as plt
 
 
 def bars():
+    """
+    Plots a stacked bar graph:
+    The title is Number of Fruit per Person,
+    The y-axis label is Quantity of Fruit,
+    The legend indicates one color per fruit type,
+    Each person gets a stacked bar (3 total),
+    Each stacked bar represents the fruit count posessed by each person,
+    The stack order from bottom to top is always: apples in red,
+    bananas in yellow, oranges in orange, peaches in peach colors.
+    """
     np.random.seed(5)
     fruit = np.random.randint(0, 20, (4, 3))
     plt.figure(figsize=(6.4, 4.8))

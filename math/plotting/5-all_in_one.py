@@ -4,7 +4,13 @@ import matplotlib.pyplot as plt
 
 
 def all_in_one():
-
+    """
+    Plot all 5 previous graphs in one figure:
+    All axis labels and plot titles have a font size of x-small
+    Plots are 3 x 2 grids
+    The last plot takes up two column widths,
+    The title of the figure is All in One.
+    """
     y0 = np.arange(0, 11) ** 3
 
     mean = [69, 0]
@@ -27,20 +33,20 @@ def all_in_one():
 
     np.random.seed(5)
     student_grades = np.random.normal(68, 15, 50)
-
+    # Figure
     plt.figure(figsize=(6.4, 4.8))
     plt.suptitle("All in One")
-
+    # Plot 1
     plt.subplot2grid((3, 2), (0, 0))
     plt.plot(np.arange(0, 11), y0, "r-")
     plt.xlim(0, 10)
-
+    # Plot 2
     plt.subplot2grid((3, 2), (0, 1))
     plt.scatter(x1, y1, color="m", s=5)
     plt.xlabel("Height (in)", fontsize="x-small")
     plt.ylabel("Weight (lbs)", fontsize="x-small")
     plt.title("Men's Height vs Weight", fontsize="x-small")
-
+    # Plot 3
     plt.subplot2grid((3, 2), (1, 0))
     plt.plot(x2, y2)
     plt.yscale("log")
@@ -48,7 +54,7 @@ def all_in_one():
     plt.xlabel("Time (years)", fontsize="x-small")
     plt.ylabel("Fraction Remaining", fontsize="x-small")
     plt.title("Exponential Decay of C-14", fontsize="x-small")
-
+    # Plot 4
     plt.subplot2grid((3, 2), (1, 1))
     plt.plot(x3, y31, "r--", label="C-14")
     plt.plot(x3, y32, "g-", label="Ra-226")
@@ -58,7 +64,7 @@ def all_in_one():
     plt.ylabel("Fraction Remaining", fontsize="x-small")
     plt.title("Exponential Decay of Radioactive Elements", fontsize="x-small")
     plt.legend(loc="upper right", fontsize="x-small")
-
+    # Plot 5
     plt.subplot2grid((3, 2), (2, 0), colspan=2)
     bins = np.arange(0, 101, 10)
     plt.hist(student_grades, bins=bins, edgecolor="black")
@@ -67,5 +73,4 @@ def all_in_one():
     plt.xlabel("Grades", fontsize="x-small")
     plt.ylabel("Number of Students", fontsize="x-small")
     plt.title("Project A", fontsize="x-small")
-
     plt.show()

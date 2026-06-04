@@ -4,7 +4,18 @@ import matplotlib.pyplot as plt
 
 
 def two():
-
+    """
+    plot x ↦ y1 and x ↦ y2 as line graphs:
+    The x-axis is labeled Time (years),
+    The y-axis is labeled Fraction Remaining,
+    The title is Exponential Decay of Radioactive Elements,
+    The x-axis ranges from 0 to 20,000,
+    The y-axis ranges from 0 to 1,
+    x ↦ y1 is  plotted with a dashed red line,
+    x ↦ y2 is be plotted with a solid green line,
+    A legend labeling x ↦ y1 as C-14 and x ↦ y2 as Ra-226,
+    is placed in the upper right hand corner of the plot.
+    """
     x = np.arange(0, 21000, 1000)
     r = np.log(0.5)
     t1 = 5730
