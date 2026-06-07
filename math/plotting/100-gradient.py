@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
+"""Module to plot mountain elevation gradient."""
 import numpy as np
 import matplotlib.pyplot as plt
 
 
 def gradient():
-
+    """Generates a scatter plot representing mountain elevation."""
     np.random.seed(5)
 
     x = np.random.randn(2000) * 10
