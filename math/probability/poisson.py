@@ -19,17 +19,37 @@ class Poisson:
             self.lambtha = float(sum(data) / len(data))
 
     def pmf(self, k):
-        """instance method, computes the PMF given k successes."""
+        """
+        Calculates the value of the PMF for a given number of "successes".
+        Args:
+            k (float or int): numbner of successes.
+        """
         if k < 0:
             return 0
         k = int(k)
         e = 2.7182818285
         pmf = e ** (-self.lambtha)
 
-        if k == 0:
-            return pmf
-
         for j in range(1, k + 1):
             pmf = pmf * self.lambtha / j
 
         return pmf
+
+    def cdf(self, k):
+        """
+        Calculates the value of the CDF for a given number of "successes".
+        Args:
+            k (float or int): numbner of successes.
+        """
+        if k < 0:
+            return 0
+        k = int(k)
+        e = 2.7182818285
+        pmf = e ** (-self.lambtha)
+
+        cdf = pmf
+        for j in range(1, k + 1):
+            pmf = pmf * self.lambtha / j
+            cdf += pmf
+
+        return cdf
