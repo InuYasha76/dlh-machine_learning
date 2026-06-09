@@ -21,7 +21,7 @@ class Poisson:
     def pmf(self, k):
         """instance method, computes the PMF given k successes."""
         if k < 0:
-            return 0.0
+            return 0
         k = int(k)
         e = 2.7182818285
         pmf = e ** (-self.lambtha)
