@@ -51,11 +51,31 @@ class Normal:
     def pdf(self, x):
         """Calculates the value of the PDF for a given x-value.
         Args: x (float) is the x-value.
-        Returns: flaot, the PDF value for x.
+        Returns: float, the PDF value for x.
         """
         pi = 3.1415926536
         e = 2.7182818285
         z = self.z_score(x)
         k = 1 / (self.stddev * ((2 * pi) ** 0.5))
-
         return k * (e ** (-0.5 * (z ** 2)))
+
+    def erf(self, x):
+        """Represents the error function for a given x-value.
+        Args: x (float) is the x-value.
+        Returns: float, the erf (approximation) for x.
+        """
+        pi = 3.1415926536
+        k = 2 / (pi ** 0.5)
+        t3 = (x ** 3) / 3
+        t5 = (x ** 5) / 10
+        t7 = (x ** 7) / 42
+        t9 = (x ** 9) / 216
+        return k * (x - t3 + t5 - t7 + t9)
+
+    def cdf(self, x):
+        """Calculates the value of the CDF for a given x-value.
+        Args: x (float) is the x-value.
+        Returns: float, the CDF value for x.
+        """
+        z = self.z_score(x)
+        return 0.5 * (1 + self.erf(z / (2 ** 0.5)))
