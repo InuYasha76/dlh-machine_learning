@@ -47,3 +47,15 @@ class Normal:
             float, the x-value of z.
         """
         return self.mean + (z * self.stddev)
+
+    def pdf(self, x):
+        """Calculates the value of the PDF for a given x-value.
+        Args: x (float) is the x-value.
+        Returns: flaot, the PDF value for x.
+        """
+        pi = 3.1415926536
+        e = 2.7182818285
+        z = self.z_score(x)
+        k = 1 / (self.stddev * ((2 * pi) ** 0.5))
+
+        return k * (e ** (-0.5 * (z ** 2)))
