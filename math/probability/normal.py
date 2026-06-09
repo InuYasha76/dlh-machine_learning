@@ -29,3 +29,21 @@ class Normal:
                 cumul_sum_diff += (n - self.mean) ** 2
 
             self.stddev = float((cumul_sum_diff / len(data)) ** 0.5)
+
+    def z_score(self, x):
+        """Calculates the z-score of a given x-value.
+        Args:
+            x (float) is the x value.
+        Returns:
+            z-score (float) represents how many stddev is x away from mean.
+        """
+        return (x - self.mean) / self.stddev
+
+    def x_value(self, z):
+        """Calculates the x-value of a given z-score.
+        Args:
+            z (float) is the z score.
+        Returns:
+            float, the x-value of z.
+        """
+        return self.mean + (z * self.stddev)
