@@ -42,5 +42,5 @@ class Binomial:
         n_choose_k = 1
         min_iterations = int(min(k, self.n - k))
         for i in range(1, min_iterations + 1):
-            n_choose_k *= (self.n - k + i) / i
+            n_choose_k *= (self.n - k + i) // i
         return n_choose_k * (self.p**k) * ((1 - self.p) ** (self.n - k))
