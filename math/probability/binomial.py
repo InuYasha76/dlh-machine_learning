@@ -45,3 +45,19 @@ class Binomial:
         for i in range(1, min_iterations + 1):
             n_choose_k = n_choose_k * (self.n - min_iterations + i) / i
         return n_choose_k * (self.p**k) * ((1 - self.p) ** (self.n - k))
+
+    def cdf(self, k):
+        """Compute the Cumulative Distribution Function of the Binomial dist.
+        Args:
+            k (int, float): the number of successful trials to evaluate.
+        Returns:
+            float: the cumulative probability of getting at most k successes.
+        """
+        if k is None:
+            return 0
+        k = int(k)
+        if k < 0:
+            return 0
+        if k >= self.n:
+            return 1.0
+        return sum(self.pmf(i) for i in range(k + 1))
