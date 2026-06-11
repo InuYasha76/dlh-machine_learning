@@ -39,6 +39,7 @@ class Binomial:
         """
         if k is None or not (0 <= k <= self.n):
             return 0
+        k = int(k)
         n_choose_k = 1
         min_iterations = int(min(k, self.n - k))
         for i in range(1, min_iterations + 1):
