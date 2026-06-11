@@ -4,6 +4,7 @@
 
 class Binomial:
     """Represents a binomial distribution."""
+
     def __init__(self, data=None, n=1, p=0.5):
         """Initialize the binomial distribution."""
         if data is None:
@@ -28,3 +29,18 @@ class Binomial:
             self.n = int(round(mean / self.p))
             # for rounding compensation, recalculate p
             self.p = float(mean / self.n)
+
+    def pmf(self, k):
+        """Compute the Probability Mass Function of the Binomial distribution.
+        Args:
+            k (int, float): the number of successful trials to evaluate..
+        Returns:
+            float: the probability of getting k successes.
+        """
+        if k is None or not (0 <= k <= self.n):
+            return 0
+        n_choose_k = 1
+        min_iterations = min(k, self.n - k)
+        for i in range(1, min_iterations + 1):
+            n_choose_k *= (self.n - k + i) / i
+        return n_choose_k * (self.p**k) * ((1 - self.p) ** (self.n - k))
