@@ -40,7 +40,7 @@ class Binomial:
         if k is None or not (0 <= k <= self.n):
             return 0
         n_choose_k = 1
-        min_iterations = min(k, self.n - k)
+        min_iterations = int(min(k, self.n - k))
         for i in range(1, min_iterations + 1):
             n_choose_k *= (self.n - k + i) / i
         return n_choose_k * (self.p**k) * ((1 - self.p) ** (self.n - k))
