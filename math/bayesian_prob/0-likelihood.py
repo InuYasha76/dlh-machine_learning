@@ -31,5 +31,5 @@ def likelihood(x, n, P):
         raise ValueError("All values in P must be in the range [0, 1]")
     binomial_coeff = 1
     for i in range(1, x + 1):
-        binomial_coeff = binomial_coeff * (n - i + 1) // i
+        binomial_coeff = binomial_coeff * (n - i + 1) / i
     return binomial_coeff * (P ** x) * ((1 - P) ** (n - x))
