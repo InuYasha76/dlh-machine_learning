@@ -61,6 +61,12 @@ def intersection(x, n, P, Pr):
         raise TypeError("P must be a 1D numpy.ndarray")
     if not isinstance(Pr, np.ndarray) or P.shape != Pr.shape:
         raise TypeError("Pr must be a numpy.ndarray with the same shape as P")
+    for p in P:
+        if not (0 <= p <= 1):
+            raise ValueError("All values in P must be in the range [0, 1]")
+    for pr in Pr:
+        if not (0 <= pr <= 1):
+            raise ValueError("All values in Pr must be in the range [0, 1]")`
     if np.any(P < 0) or np.any(P > 1):
         raise ValueError("All values in P must be in the range [0, 1]")
     if np.any(P < 0) or np.any(P > 1):
