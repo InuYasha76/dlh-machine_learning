@@ -77,6 +77,17 @@ def intersection(x, n, P, Pr):
 
 
 def marginal(x, n, P, Pr):
+    """calculates the marginal probability of obtaining the data
+    with the various hypothetical probabilities:
+    Args:
+        x (int): the number of patients that developed severe side effects.
+        n (int): the total number of patients observed.
+        P (numpy.ndarray): 1D array containing various hypothetical
+        probabilities of developing severe side effects.
+        Pr (numpy.ndarray): 1D array containing the prior beliefs of P.
+    Returns:
+        (numpy.ndarray): the marginal probability of obtaining x and n.
+    """
     if type(n) is not int or n <= 0:
         raise ValueError("n must be a positive integer")
     if type(x) is not int or x < 0:
