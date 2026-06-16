@@ -26,7 +26,7 @@ def likelihood(x, n, P):
                 )
     if x > n:
         raise ValueError("x cannot be greater than n")
-    if not isinstance(P, np.ndarray) and P.ndim != 1:
+    if not isinstance(P, np.ndarray) or P.ndim != 1:
         raise TypeError("P must be a 1D numpy.ndarray")
     if np.any(P < 0) or np.any(P > 1):
         raise ValueError("All values in P must be in the range [0, 1]")
@@ -57,13 +57,9 @@ def intersection(x, n, P, Pr):
                 )
     if x > n:
         raise ValueError("x cannot be greater than n")
-    if type(P) is list:
-        P = np.array(P)
-    if type(Pr) is list:
-        Pr = np.array(Pr)
-    if not isinstance(P, np.ndarray) and P.ndim != 1:
+    if not isinstance(P, np.ndarray) or P.ndim != 1:
         raise TypeError("P must be a 1D numpy.ndarray")
-    if not isinstance(Pr, np.ndarray) and Pr.ndim != 1 and P.shape != Pr.shape:
+    if not isinstance(Pr, np.ndarray) or P.shape != Pr.shape:
         raise TypeError("Pr must be a numpy.ndarray with the same shape as P")
     if np.any(P < 0) or np.any(P > 1):
         raise ValueError("All values in P must be in the range [0, 1]")
