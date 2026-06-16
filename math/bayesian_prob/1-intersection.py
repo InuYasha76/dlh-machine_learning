@@ -66,7 +66,7 @@ def intersection(x, n, P, Pr):
             raise ValueError("All values in P must be in the range [0, 1]")
     for pr in Pr:
         if not (0 <= pr <= 1):
-            raise ValueError("All values in Pr must be in the range [0, 1]")`
+            raise ValueError("All values in Pr must be in the range [0, 1]")
     if np.any(P < 0) or np.any(P > 1):
         raise ValueError("All values in P must be in the range [0, 1]")
     if np.any(P < 0) or np.any(P > 1):
