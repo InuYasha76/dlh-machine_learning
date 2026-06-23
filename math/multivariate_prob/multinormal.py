@@ -1,5 +1,7 @@
-import numpy as np
+#!/usr/bin/env python3
 """This module is about multivariate probability."""
+
+import numpy as np
 
 
 class MultiNormal:
