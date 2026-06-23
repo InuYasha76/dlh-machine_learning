@@ -18,6 +18,5 @@ def correlation(C):
         raise TypeError("C must be a numpy.ndarray")
     if C.ndim != 2 or C.shape[0] != C.shape[1]:
         raise ValueError("C must be a 2D square matrix")
-    std_devs = np.sqrt(np.diag(C))
-    std_devs = std_devs.reshape(-1, 1)
-    return C / np.dot(std_devs, std_devs.T)
+    std_devs = np.sqrt(np.diagonal(C))
+    return (C / std_devs) / std_devs.reshape(-1, 1)
