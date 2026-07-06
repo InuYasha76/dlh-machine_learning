@@ -2,9 +2,6 @@
 """This module is about pandas DataFrame."""
 
 
-import pandas as pd
-
-
 def slice(df):
     """
     Takes a pd.DataFrame and extracts columns High, Low, Close, Volume_(BTC)
@@ -14,6 +11,6 @@ def slice(df):
     Returns:
         A sliced pandas Dataframe.
     """
-    if df is None or not isinstance(df, pd.DataFrame):
+    if df is None or type(df).__name__ != 'DataFrame':
         return 0
     return df.iloc[::60][["High", "Low", "Close", "Volume_(BTC)"]]
