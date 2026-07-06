@@ -10,4 +10,3 @@ my_dict = {
 }
 df = pd.DataFrame(my_dict)
 df.index = [chr(65 + i) for i in range(4)]
-print(df)
