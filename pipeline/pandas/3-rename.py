@@ -15,6 +15,6 @@ def rename(df):
     """
     if df is None or not isinstance(df, pd.DataFrame):
         return 0
-    df_renamed = df.rename(columns={"Timestamp": "Datetime"})
-    df["Datetime"] = pd.to_datetime(df["Datetime"], format="%Y-%m-%d %H:%M:%S")
+    df = df.rename(columns={"Timestamp": "Datetime"})
+    df["Datetime"] = pd.to_datetime(df["Datetime"], unit='s')
     return df[["Datetime", "Close"]]
