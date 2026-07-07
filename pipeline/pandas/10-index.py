@@ -10,6 +10,7 @@ def index(df):
     Returns:
         A new pandas DataFrame with the 'Timestamp' coumn as index.
     """
-    if df is None or type(df).__name__ != 'DataFrame':
+    if (df is None or type(df).__name__ != 'DataFrame' or
+        'Timestamp' not in (df.columns)):
         return 0
     return df.set_index('Timestamp')

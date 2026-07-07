@@ -4,6 +4,8 @@
 
 import pandas as pd
 
+index = __import__("10-index").index
+
 
 def hierarchy(df1, df2):
     """
@@ -24,15 +26,13 @@ def hierarchy(df1, df2):
         return None
     if df1.empty or df2.empty:
         return None
-    if 'Timestamp' not in df1.columns or 'Timestamp' not in df2.columns:
+    if "Timestamp" not in df1.columns or "Timestamp" not in df2.columns:
         return None
-
-    index = __import__("10-index").index
-    df1 = index(df1)        # df1 index: Timestamp
-    df2 = index(df2)        # df2 index: Timestamp
-    df = pd.concat([df2, df1], keys=['bitstamp', 'coinbase'])
+    df1 = index(df1)  # df1 index: Timestamp
+    df2 = index(df2)  # df2 index: Timestamp
+    df = pd.concat([df2, df1], keys=["bitstamp", "coinbase"])
     # df index: key | Timestamp
-    df = df.swaplevel()     # df index after swap: Timestamp | key
-    df = df.sort_index()    # df sort on Timestamp
+    df = df.swaplevel()  # df index after swap: Timestamp | key
+    df = df.sort_index()  # df sort on Timestamp
     # df filter on Timestamp 1417411980 to 1417417980
     return df.loc[1417411980:1417417980]
