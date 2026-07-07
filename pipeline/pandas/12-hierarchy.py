@@ -3,7 +3,6 @@
 
 
 import pandas as pd
-
 index = __import__("10-index").index
 
 
@@ -30,7 +29,7 @@ def hierarchy(df1, df2):
         return None
     df1 = index(df1)  # df1 index: Timestamp
     df2 = index(df2)  # df2 index: Timestamp
-    df = pd.concat([df2, df1], keys=["bitstamp", "coinbase"])
+    df = pd.concat([df2, df1], keys=['bitstamp', 'coinbase'])
     # df index: key | Timestamp
     df = df.swaplevel()  # df index after swap: Timestamp | key
     df = df.sort_index()  # df sort on Timestamp
