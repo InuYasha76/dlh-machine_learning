@@ -12,5 +12,4 @@ def high(df):
     """
     if df is None or type(df).__name__ != 'DataFrame':
         return 0
-
     return df.sort_values(by='High', ascending=False)
