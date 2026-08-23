@@ -22,16 +22,12 @@ def hierarchy(df1, df2):
         - The concatenated, index-modified, filtered and sorted DataFrame.
     """
     if not (isinstance(df1, pd.DataFrame) and isinstance(df2, pd.DataFrame)):
-        return None
+        return 0
     if df1.empty or df2.empty:
-        return None
+        return 0
     if "Timestamp" not in df1.columns or "Timestamp" not in df2.columns:
-        return None
-    df1 = index(df1)  # df1 index: Timestamp
-    df2 = index(df2)  # df2 index: Timestamp
+        return 0
+    df1 = index(df1).loc[1417411980:1417417980]
+    df2 = index(df2).loc[1417411980:1417417980]
     df = pd.concat([df2, df1], keys=['bitstamp', 'coinbase'])
-    # df index: key | Timestamp
-    df = df.swaplevel()  # df index after swap: Timestamp | key
-    df = df.sort_index()  # df sort on Timestamp
-    # df filter on Timestamp 1417411980 to 1417417980
-    return df.loc[1417411980:1417417980]
+    return df.swaplevel().sort_index()
