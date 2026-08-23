@@ -13,4 +13,4 @@ def slice(df):
     """
     if df is None or type(df).__name__ != 'DataFrame':
         return 0
-    return df.iloc[::60][["High", "Low", "Close", "Volume_(BTC)"]]
+    return df.loc[::60, ["High", "Low", "Close", "Volume_(BTC)"]]
