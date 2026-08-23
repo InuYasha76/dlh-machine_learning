@@ -10,7 +10,6 @@ def analyze(df):
     Returns:
         A new pandas DataFrame containing the descriptive statistics.
     """
-    if df is None or type(df).__name__ != 'DataFrame':
+    if type(df).__name__ != 'DataFrame' or df.empty:
         return 0
-
     return df.drop(columns=['Timestamp'], errors='ignore').describe()
