@@ -8,6 +8,5 @@ data = {
         "First": [0.0, 0.5, 1.0, 1.5],
         "Second": ["one", "two", "three", "four"]
 }
-index = [chr(65 + i) for i in range(4)] 
-df = pd.DataFrame(data, index)
+df = pd.DataFrame(data, index=list("ABCD"))
 print(df)
