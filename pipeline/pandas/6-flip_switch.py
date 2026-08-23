@@ -14,6 +14,5 @@ def flip_switch(df):
     """
     if df is None or type(df).__name__ != 'DataFrame':
         return 0
-
     df_sorted = df.sort_values(by='Timestamp', ascending=False)
     return df_sorted.T
