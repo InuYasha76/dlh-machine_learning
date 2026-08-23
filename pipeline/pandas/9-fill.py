@@ -12,11 +12,8 @@ def fill(df):
     """
     if df is None or type(df).__name__ != 'DataFrame':
         return 0
-
     df = df.drop(columns=['Weighted_Price'])
-
     df['Close'] = df['Close'].ffill()
-
     df = df.fillna(value={
         'High': df['Close'],
         'Low': df['Close'],
@@ -24,5 +21,4 @@ def fill(df):
         'Volume_(BTC)': 0,
         'Volume_(Currency)': 0
     })
-
     return df
