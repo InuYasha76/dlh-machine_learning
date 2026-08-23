@@ -9,4 +9,3 @@ data = {
         "Second": ["one", "two", "three", "four"]
 }
 df = pd.DataFrame(data, index=list("ABCD"))
-print(df)
