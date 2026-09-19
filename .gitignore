@@ -69,3 +69,6 @@ coverage.xml
 *~
 *.sublime-project
 *.sublime-workspace
+
+# Test main files
+*-main.py
