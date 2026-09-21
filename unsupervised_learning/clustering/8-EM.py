@@ -5,6 +5,9 @@ initialize = __import__('4-initialize').initialize
 expectation = __import__('6-expectation').expectation
 maximization = __import__('7-maximization').maximization
 
+FAILURE = (None, None, None, None, None)
+PRINT_EVERY = 10
+
 
 def expectation_maximization(X, k, iterations=1000, tol=1e-5, verbose=False):
     """Perform the expectation maximization algorithm for a GMM.
@@ -25,36 +28,34 @@ def expectation_maximization(X, k, iterations=1000, tol=1e-5, verbose=False):
             g (numpy.ndarray): Posterior probabilities of shape (k, n).
             l (float): Log likelihood of the model.
     """
-    if not isinstance(X, np.ndarray) or X.ndim != 2:
-        return None, None, None, None, None
-    if not isinstance(k, int) or isinstance(k, bool) or k <= 0:
-        return None, None, None, None, None
-    if (not isinstance(iterations, int)
-            or isinstance(iterations, bool)
-            or iterations <= 0):
-        return None, None, None, None, None
-    if (not isinstance(tol, (int, float))
-            or isinstance(tol, bool)
-            or tol < 0):
-        return None, None, None, None, None
-    if not isinstance(verbose, bool):
-        return None, None, None, None, None
+    if (not isinstance(X, np.ndarray) or X.ndim != 2
+            or not isinstance(k, int) or isinstance(k, bool) or k <= 0
+            or not isinstance(iterations, int)
+            or isinstance(iterations, bool) or iterations <= 0
+            or not isinstance(tol, (int, float))
+            or isinstance(tol, bool) or tol < 0
+            or not isinstance(verbose, bool)):
+        return FAILURE
     pi, m, S = initialize(X, k)
     if pi is None:
-        return None, None, None, None, None
-    l_prev = 0
-    for i in range(iterations):
+        return FAILURE
+    g, log_l = expectation(X, pi, m, S)
+    if g is None:
+        return FAILURE
+    if verbose:
+        print(f'Log Likelihood after 0 iterations: {round(log_l, 5)}')
+    for i in range(1, iterations + 1):
+        pi, m, S = maximization(X, g)
+        if pi is None:
+            return FAILURE
+        l_prev = log_l
         g, log_l = expectation(X, pi, m, S)
         if g is None:
-            return None, None, None, None, None
-        if verbose and i % 10 == 0:
-            print('Log Likelihood after {} iterations: {}'.format(
-                i, round(log_l, 5)))
-        if i > 0 and abs(log_l - l_prev) <= tol:
+            return FAILURE
+        if verbose and i % PRINT_EVERY == 0:
+            print(f'Log Likelihood after {i} iterations: {round(log_l, 5)}')
+        if abs(log_l - l_prev) <= tol:
             break
-        l_prev = log_l
-        pi, m, S = maximization(X, g)
-    if verbose and i % 10 != 0:
-        print('Log Likelihood after {} iterations: {}'.format(
-            i, round(log_l, 5)))
+    if verbose and i % PRINT_EVERY != 0:
+        print(f'Log Likelihood after {i} iterations: {round(log_l, 5)}')
     return pi, m, S, g, log_l
