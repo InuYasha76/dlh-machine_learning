@@ -58,8 +58,9 @@ coverage.xml
 *.py,cover
 .hypothesis/
 
-# Jupyter Notebook checkpoints
-.ipynb_checkpoints
+# Jupyter Notebooks
+#*.ipynb
+# .ipynb_checkpoints
 
 # Editor / IDE settings
 .vscode/
