@@ -14,6 +14,26 @@ This project covers unsupervised clustering algorithms, beginning with K-means c
 - All files must be executable and start with `#!/usr/bin/env python3`
 - All modules, classes, and functions must have documentation
 
+## Installation
+
+Install all dependencies (including those needed to run [clustering_pipeline.ipynb](./clustering_pipeline.ipynb)) with:
+
+```bash
+pip install -r requirements.txt
+```
+
+Each numbered task can then be run directly, for example:
+
+```bash
+./11-main.py
+```
+
+Or explore the whole pipeline interactively in [clustering_pipeline.ipynb](./clustering_pipeline.ipynb):
+
+```bash
+jupyter notebook clustering_pipeline.ipynb
+```
+
 ## Tasks
 
 | File | Description |

@@ -1,0 +1,8 @@
+numpy==1.25.2
+scipy==1.11.4
+scikit-learn==1.5.0
+matplotlib==3.9.4
+pycodestyle==2.11.1
+notebook==7.5.3
+ipykernel==6.31.0
+nbconvert==7.17.0
