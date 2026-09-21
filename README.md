@@ -8,7 +8,8 @@ Repository containing projects and exercises covering foundational and advanced 
 - `pipeline/`: Data engineering and learning pipelines
   - `databases/`: Database operations and integrations
   - `pandas/`: Data manipulation with Pandas
-  - `unsupervised_learning/`: Unsupervised learning techniques (clustering, dimensionality reduction)
+- `unsupervised_learning/`: Unsupervised learning techniques
+  - `clustering/`: K-means, Gaussian Mixture Models, and agglomerative (hierarchical) clustering
 
 ## Environment & Setup
 
