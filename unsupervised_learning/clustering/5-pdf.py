@@ -26,8 +26,10 @@ def pdf(X, m, S):
     d = m.shape[0]
     if X.shape[1] != d or S.shape != (d, d):
         return None
-    S_inv = np.linalg.inv(S)
     det = np.linalg.det(S)
+    if det <= 0:
+        return None
+    S_inv = np.linalg.inv(S)
     diff = X - m
     coeff = 1 / (((2 * np.pi) ** (d / 2)) * np.sqrt(det))
     mahal = np.sum((diff @ S_inv) * diff, axis=1)
