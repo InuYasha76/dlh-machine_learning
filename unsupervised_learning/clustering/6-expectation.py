@@ -36,7 +36,10 @@ def expectation(X, pi, m, S):
         return None, None
     g = np.zeros((k, n))
     for j in range(k):
-        g[j] = pi[j] * pdf(X, m[j], S[j])
+        likelihood = pdf(X, m[j], S[j])
+        if likelihood is None:
+            return None, None
+        g[j] = pi[j] * likelihood
     total = g.sum(axis=0)
     log_l = np.sum(np.log(total))
     g /= total
